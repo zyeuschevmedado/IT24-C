@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheram's 3 Favorite Food Stops - Manolo Fortich</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Sheram's Favorite Food Stops in Manolo Fortich</h1>
+    <div id="map"></div> 
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    
+    <script>
+        // Set the map to the coordinates for Manolo Fortich
+        const map = L.map('map').setView([8.3693, 124.8644], 14);
+
+        // Add the OpenStreetMap tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            // A common attribution line for OpenStreetMap
+            attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>' 
+        }).addTo(map);
+
+        // Fetch the food data
+        fetch('food.json')
+            .then(response => response.json())
+            .then(data => {
+                // FIX 1: The constant was not defined, use 'data' instead
+                // FIX 2: Added a semicolon after the object destructuring
+                data.forEach(place => { 
+                    // Create a marker and add it to the map
+                    const marker = L.marker([place.latitude, place.longitude]).addTo(map);
+
+                    // FIX 3: Corrected the backticks for the template literal
+                    // Used single backticks (`) for the entire multi-line string
+                    marker.bindPopup(` 
+                        <h3>${place.name}</h3>
+                        <img src="${place.image}" alt="${place.name}" width="200px"><br>
+                        <p>${place.description}</p>
+                    `); 
+                });
+            }) 
+            // FIX 4: Corrected the console.error call by removing the trailing comma
+            .catch(error => console.error('Error loading JSON:', error)); 
+    </script> 
+</body>
+</html>

@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Del Monte Clubhouse",
+        "description": "Known for their signature Del Monte steak and fresh pineapple juice. A must-try for visitors!",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Steak_and_fries.jpg",
+        "latitude": 8.3743,
+        "longitude": 124.8631
+    },
+    {
+        "name": "Hills View Cafe",
+        "description": "A cozy spot with a scenic mountain view - perfect for coffee and sunset watching.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Steak_and_fries.jpg",
+        "latitude": 8.3681,
+        "longitude": 124.8615
+    },
+    {
+        "name": "Titas Sisa's Grill & Restobar",
+        "description": "A popular local hangout offering grilled dishes and live music on weekends.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Steak_and_fries.jpg",
+        "latitude": 8.3659,
+        "longitude": 124.8673
+    }
+]
